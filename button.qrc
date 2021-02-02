@@ -1,5 +1,17 @@
 <RCC>
   <qresource prefix="buttons">
+    <file>beta.png</file>
+    <file>delta.png</file>
+    <file>psi.png</file>
+    <file>1Z.png</file>
+    <file>1Y.png</file>
+    <file>1X.png</file>
+    <file>z.png</file>
+    <file>x.png</file>
+    <file>y.png</file>
+    <file>h.png</file>
+    <file>lambda.png</file>
+    <file>phi.png</file>
     <file>2.png</file>
     <file>3.png</file>
     <file>cil-home.png</file>
