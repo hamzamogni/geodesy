@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main_window.ui'
+# Form implementation generated from reading ui file 'E:\GeoInfo2\tout\Projet Geodesie\main_window.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -79,6 +79,7 @@ class Ui_MainWindow(object):
         self.left_side_menu.setMaximumSize(QtCore.QSize(50, 16777215))
         self.left_side_menu.setStyleSheet("QFrame{\n"
 "   background-color: #9aa298;\n"
+"   z-index:0;\n"
 "}\n"
 "QPushButton{\n"
 "   padding: 5px 10px;\n"
@@ -89,7 +90,8 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:hover{\n"
 "   background-color: #101010;\n"
-"}")
+"}\n"
+"")
         self.left_side_menu.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.left_side_menu.setFrameShadow(QtWidgets.QFrame.Raised)
         self.left_side_menu.setObjectName("left_side_menu")
@@ -193,13 +195,91 @@ class Ui_MainWindow(object):
         self.center_main_items.setObjectName("center_main_items")
         self.stackedWidget = QtWidgets.QStackedWidget(self.center_main_items)
         self.stackedWidget.setGeometry(QtCore.QRect(0, 0, 691, 521))
+        self.stackedWidget.setStyleSheet("QLineEdit{\n"
+" border-radius: 5px;\n"
+" border: 1px solid #00aa7f;\n"
+"}\n"
+"")
         self.stackedWidget.setObjectName("stackedWidget")
         self.fonction1 = QtWidgets.QWidget()
         self.fonction1.setStyleSheet("")
         self.fonction1.setObjectName("fonction1")
         self.titlef1 = QtWidgets.QLabel(self.fonction1)
-        self.titlef1.setGeometry(QtCore.QRect(160, 20, 331, 81))
+        self.titlef1.setGeometry(QtCore.QRect(30, 10, 531, 81))
         self.titlef1.setObjectName("titlef1")
+        self.label_3 = QtWidgets.QLabel(self.fonction1)
+        self.label_3.setGeometry(QtCore.QRect(40, 140, 41, 31))
+        self.label_3.setObjectName("label_3")
+        self.label_4 = QtWidgets.QLabel(self.fonction1)
+        self.label_4.setGeometry(QtCore.QRect(40, 200, 41, 31))
+        self.label_4.setObjectName("label_4")
+        self.calculer = QtWidgets.QPushButton(self.fonction1)
+        self.calculer.setGeometry(QtCore.QRect(100, 270, 81, 41))
+        self.calculer.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.calculer.setStyleSheet("QPushButton{\n"
+"   padding: 5px 10px;\n"
+"   border: none;\n"
+"   border-radius: 5px;\n"
+"   background-color: #9aa298;\n"
+"   color: #fff;\n"
+"}\n"
+"QPushButton:hover{\n"
+"   background-color: #101010;\n"
+"}")
+        self.calculer.setObjectName("calculer")
+        self.a = QtWidgets.QLineEdit(self.fonction1)
+        self.a.setGeometry(QtCore.QRect(100, 140, 121, 31))
+        self.a.setStyleSheet("")
+        self.a.setObjectName("a")
+        self.b = QtWidgets.QLineEdit(self.fonction1)
+        self.b.setGeometry(QtCore.QRect(100, 200, 121, 31))
+        self.b.setObjectName("b")
+        self.applatissement = QtWidgets.QLineEdit(self.fonction1)
+        self.applatissement.setEnabled(False)
+        self.applatissement.setGeometry(QtCore.QRect(480, 150, 151, 31))
+        self.applatissement.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+        self.applatissement.setObjectName("applatissement")
+        self.premier_e = QtWidgets.QLineEdit(self.fonction1)
+        self.premier_e.setEnabled(False)
+        self.premier_e.setGeometry(QtCore.QRect(480, 200, 151, 31))
+        self.premier_e.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+        self.premier_e.setObjectName("premier_e")
+        self.deuxieme_e = QtWidgets.QLineEdit(self.fonction1)
+        self.deuxieme_e.setEnabled(False)
+        self.deuxieme_e.setGeometry(QtCore.QRect(480, 250, 151, 31))
+        self.deuxieme_e.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+        self.deuxieme_e.setObjectName("deuxieme_e")
+        self.e_angulaire = QtWidgets.QLineEdit(self.fonction1)
+        self.e_angulaire.setEnabled(False)
+        self.e_angulaire.setGeometry(QtCore.QRect(480, 300, 151, 31))
+        self.e_angulaire.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+        self.e_angulaire.setObjectName("e_angulaire")
+        self.c_a_pole = QtWidgets.QLineEdit(self.fonction1)
+        self.c_a_pole.setEnabled(False)
+        self.c_a_pole.setGeometry(QtCore.QRect(480, 350, 151, 31))
+        self.c_a_pole.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+        self.c_a_pole.setObjectName("c_a_pole")
+        self.line = QtWidgets.QFrame(self.fonction1)
+        self.line.setGeometry(QtCore.QRect(250, 110, 20, 361))
+        self.line.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.label_5 = QtWidgets.QLabel(self.fonction1)
+        self.label_5.setGeometry(QtCore.QRect(300, 150, 131, 21))
+        self.label_5.setObjectName("label_5")
+        self.label_6 = QtWidgets.QLabel(self.fonction1)
+        self.label_6.setGeometry(QtCore.QRect(290, 200, 151, 21))
+        self.label_6.setStyleSheet("color: rgb(0, 0, 0);")
+        self.label_6.setObjectName("label_6")
+        self.label_7 = QtWidgets.QLabel(self.fonction1)
+        self.label_7.setGeometry(QtCore.QRect(280, 250, 171, 21))
+        self.label_7.setObjectName("label_7")
+        self.label_8 = QtWidgets.QLabel(self.fonction1)
+        self.label_8.setGeometry(QtCore.QRect(270, 300, 191, 31))
+        self.label_8.setObjectName("label_8")
+        self.label_9 = QtWidgets.QLabel(self.fonction1)
+        self.label_9.setGeometry(QtCore.QRect(290, 350, 161, 31))
+        self.label_9.setObjectName("label_9")
         self.stackedWidget.addWidget(self.fonction1)
         self.fonction2 = QtWidgets.QWidget()
         self.fonction2.setStyleSheet("")
@@ -305,7 +385,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(8)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -319,7 +399,15 @@ class Ui_MainWindow(object):
         self.fct6.setText(_translate("MainWindow", "Fonction 6"))
         self.fct7.setText(_translate("MainWindow", "Fonction 7"))
         self.fct8.setText(_translate("MainWindow", "Fonction 8"))
-        self.titlef1.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:48pt; color:#00aa7f;\">Fonction 1:</span></p></body></html>"))
+        self.titlef1.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:26pt; color:#00aa7f;\">Les paramètres d\'une ellipsoïde :</span></p></body></html>"))
+        self.label_3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; color:#000000;\">a</span></p></body></html>"))
+        self.label_4.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; color:#000000;\">b</span></p></body></html>"))
+        self.calculer.setText(_translate("MainWindow", "Calculer"))
+        self.label_5.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; color:#000000;\">applatissement</span></p></body></html>"))
+        self.label_6.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; color:#000000;\">1er excentricite</span></p></body></html>"))
+        self.label_7.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; color:#000000;\">2eme excentricite</span></p></body></html>"))
+        self.label_8.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; color:#000000;\">excentricite angulaire</span></p></body></html>"))
+        self.label_9.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; color:#000000;\">courbure au pole</span></p></body></html>"))
         self.titlef2.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:48pt; color:#00aa7f;\">Fonction 2:</span></p></body></html>"))
         self.titlef3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:48pt; color:#00aa7f;\">Fonction 3:</span></p></body></html>"))
         self.titlef4.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:48pt; color:#00aa7f;\">Fonction 4:</span></p></body></html>"))
