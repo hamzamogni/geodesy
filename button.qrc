@@ -1,0 +1,18 @@
+<RCC>
+  <qresource prefix="buttons">
+    <file>2.png</file>
+    <file>3.png</file>
+    <file>cil-home.png</file>
+    <file>10.png</file>
+    <file>12.png</file>
+    <file>8.png</file>
+    <file>f.png</file>
+    <file>cil-menu.png</file>
+    <file>cil-minus.png</file>
+    <file>cil-window-restore.png</file>
+    <file>cil-x.png</file>
+    <file>5.png</file>
+    <file>6.png</file>
+    <file>4.png</file>
+  </qresource>
+</RCC>
