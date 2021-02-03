@@ -567,7 +567,7 @@ QPushButton:hover{
 </string>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="fonction1">
            <property name="styleSheet">
@@ -971,7 +971,7 @@ QPushButton:hover{
              <enum>Qt::Vertical</enum>
             </property>
            </widget>
-           <widget class="QPushButton" name="calculer_3">
+           <widget class="QPushButton" name="fct2_c2g">
             <property name="geometry">
              <rect>
               <x>310</x>
@@ -1107,7 +1107,7 @@ QPushButton:hover{
              </rect>
             </property>
            </widget>
-           <widget class="QPushButton" name="calculer_4">
+           <widget class="QPushButton" name="fct2_g2c">
             <property name="geometry">
              <rect>
               <x>310</x>

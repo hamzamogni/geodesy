@@ -328,13 +328,13 @@ class Ui_MainWindow(object):
         self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
-        self.calculer_3 = QtWidgets.QPushButton(self.fonction2)
-        self.calculer_3.setGeometry(QtCore.QRect(310, 290, 81, 41))
+        self.fct2_c2g = QtWidgets.QPushButton(self.fonction2)
+        self.fct2_c2g.setGeometry(QtCore.QRect(310, 290, 81, 41))
         font = QtGui.QFont()
         font.setPointSize(16)
-        self.calculer_3.setFont(font)
-        self.calculer_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.calculer_3.setStyleSheet("QPushButton{\n"
+        self.fct2_c2g.setFont(font)
+        self.fct2_c2g.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.fct2_c2g.setStyleSheet("QPushButton{\n"
 "   padding: 5px 10px;\n"
 "   border: none;\n"
 "   border-radius: 5px;\n"
@@ -344,7 +344,7 @@ class Ui_MainWindow(object):
 "QPushButton:hover{\n"
 "   background-color: #101010;\n"
 "}")
-        self.calculer_3.setObjectName("calculer_3")
+        self.fct2_c2g.setObjectName("fct2_c2g")
         self.frame_9 = QtWidgets.QFrame(self.fonction2)
         self.frame_9.setGeometry(QtCore.QRect(410, 180, 51, 171))
         self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -377,13 +377,13 @@ class Ui_MainWindow(object):
         self.fct2_x = QtWidgets.QLineEdit(self.fonction2)
         self.fct2_x.setGeometry(QtCore.QRect(490, 190, 121, 31))
         self.fct2_x.setObjectName("fct2_x")
-        self.calculer_4 = QtWidgets.QPushButton(self.fonction2)
-        self.calculer_4.setGeometry(QtCore.QRect(310, 200, 81, 41))
+        self.fct2_g2c = QtWidgets.QPushButton(self.fonction2)
+        self.fct2_g2c.setGeometry(QtCore.QRect(310, 200, 81, 41))
         font = QtGui.QFont()
         font.setPointSize(16)
-        self.calculer_4.setFont(font)
-        self.calculer_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.calculer_4.setStyleSheet("QPushButton{\n"
+        self.fct2_g2c.setFont(font)
+        self.fct2_g2c.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.fct2_g2c.setStyleSheet("QPushButton{\n"
 "   padding: 5px 10px;\n"
 "   border: none;\n"
 "   border-radius: 5px;\n"
@@ -393,7 +393,7 @@ class Ui_MainWindow(object):
 "QPushButton:hover{\n"
 "   background-color: #101010;\n"
 "}")
-        self.calculer_4.setObjectName("calculer_4")
+        self.fct2_g2c.setObjectName("fct2_g2c")
         self.line_3 = QtWidgets.QFrame(self.fonction2)
         self.line_3.setGeometry(QtCore.QRect(340, 250, 20, 31))
         self.line_3.setFrameShape(QtWidgets.QFrame.VLine)
@@ -685,7 +685,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         self.tabWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -711,8 +711,8 @@ class Ui_MainWindow(object):
         self.label_9.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; color:#000000;\">courbure au pole</span></p></body></html>"))
         self.page1_erreur.setText(_translate("MainWindow", "TextLabel"))
         self.titlef2.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:26pt; color:#00aa7f;\">Convertisseur des coordonnées </span></p></body></html>"))
-        self.calculer_3.setText(_translate("MainWindow", "<<"))
-        self.calculer_4.setText(_translate("MainWindow", ">>"))
+        self.fct2_c2g.setText(_translate("MainWindow", "<<"))
+        self.fct2_g2c.setText(_translate("MainWindow", ">>"))
         self.titlef3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:26pt; color:#00aa7f;\">Calcul des altitudes</span></p></body></html>"))
         self.calculer_5.setText(_translate("MainWindow", "Calculer"))
         self.titlef4.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:48pt; color:#00aa7f;\">Fonction 4:</span></p></body></html>"))
