@@ -420,10 +420,10 @@ class Ui_MainWindow(object):
         self.frame_13.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_13.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_13.setObjectName("frame_13")
-        self.calculer_5 = QtWidgets.QPushButton(self.fonction3)
-        self.calculer_5.setGeometry(QtCore.QRect(200, 290, 81, 41))
-        self.calculer_5.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.calculer_5.setStyleSheet("QPushButton{\n"
+        self.fct3_altitu_btn = QtWidgets.QPushButton(self.fonction3)
+        self.fct3_altitu_btn.setGeometry(QtCore.QRect(200, 290, 81, 41))
+        self.fct3_altitu_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.fct3_altitu_btn.setStyleSheet("QPushButton{\n"
 "   padding: 5px 10px;\n"
 "   border: none;\n"
 "   border-radius: 5px;\n"
@@ -433,7 +433,7 @@ class Ui_MainWindow(object):
 "QPushButton:hover{\n"
 "   background-color: #101010;\n"
 "}")
-        self.calculer_5.setObjectName("calculer_5")
+        self.fct3_altitu_btn.setObjectName("fct3_altitu_btn")
         self.line_5 = QtWidgets.QFrame(self.fonction3)
         self.line_5.setGeometry(QtCore.QRect(333, 160, 20, 261))
         self.line_5.setFrameShape(QtWidgets.QFrame.VLine)
@@ -685,7 +685,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
         self.tabWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -714,7 +714,7 @@ class Ui_MainWindow(object):
         self.fct2_c2g.setText(_translate("MainWindow", "<<"))
         self.fct2_g2c.setText(_translate("MainWindow", ">>"))
         self.titlef3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:26pt; color:#00aa7f;\">Calcul des altitudes</span></p></body></html>"))
-        self.calculer_5.setText(_translate("MainWindow", "Calculer"))
+        self.fct3_altitu_btn.setText(_translate("MainWindow", "Calculer"))
         self.titlef4.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:48pt; color:#00aa7f;\">Fonction 4:</span></p></body></html>"))
         self.calculer_6.setText(_translate("MainWindow", "Calculer"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.ray_m), _translate("MainWindow", "Rayon du courbure méridiane"))

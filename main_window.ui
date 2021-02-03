@@ -567,7 +567,7 @@ QPushButton:hover{
 </string>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="fonction1">
            <property name="styleSheet">
@@ -1213,7 +1213,7 @@ QPushButton:hover{
              <enum>QFrame::Raised</enum>
             </property>
            </widget>
-           <widget class="QPushButton" name="calculer_5">
+           <widget class="QPushButton" name="fct3_altitu_btn">
             <property name="geometry">
              <rect>
               <x>200</x>
