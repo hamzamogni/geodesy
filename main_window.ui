@@ -567,7 +567,7 @@ QPushButton:hover{
 </string>
           </property>
           <property name="currentIndex">
-           <number>3</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="fonction1">
            <property name="styleSheet">
@@ -1267,7 +1267,7 @@ QPushButton:hover{
              <enum>Qt::Vertical</enum>
             </property>
            </widget>
-           <widget class="QLineEdit" name="fct3_delta">
+           <widget class="QLineEdit" name="fct3_phi">
             <property name="geometry">
              <rect>
               <x>440</x>
@@ -1320,13 +1320,13 @@ QPushButton:hover{
             <property name="geometry">
              <rect>
               <x>370</x>
-              <y>170</y>
+              <y>180</y>
               <width>41</width>
-              <height>41</height>
+              <height>31</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">image: url(:/buttons/delta.png);</string>
+             <string notr="true">image: url(:/buttons/phi.png);</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -1822,7 +1822,7 @@ image: url(:/buttons/alpha.png);</string>
            <widget class="QLabel" name="titlef5">
             <property name="geometry">
              <rect>
-              <x>160</x>
+              <x>20</x>
               <y>10</y>
               <width>331</width>
               <height>81</height>
