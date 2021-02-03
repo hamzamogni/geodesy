@@ -32,6 +32,13 @@ class MainWindow(QMainWindow):
 
         self.ui.calculer.clicked.connect(lambda: self.page1(self.ui.a.text(), self.ui.b.text()))
 
+        self.ui.fct2_g2c.clicked.connect(
+            lambda: self.page2(0, self.ui.fct2_phi.text(), self.ui.fct2_lambda.text(), self.ui.fct2_h.text()))
+        self.ui.fct2_c2g.clicked.connect(
+            lambda: self.page2(1, self.ui.fct2_x.text(), self.ui.fct2_y.text(), self.ui.fct2_z.text()))
+
+        self.ui.fct3_altitu_btn.clicked.connect(lambda: self.page3(self.ui.fct3_x.text()))
+
         self.ui.page1_erreur.setVisible(False)
 
         self.show()
@@ -53,6 +60,39 @@ class MainWindow(QMainWindow):
             self.ui.e_angulaire.setText(str(res["excentricite_ang"]))
             self.ui.c_a_pole.setText(str(res["courbure_pole"]))
 
+    def page2(self, cart2geo, a, b, c):
+        try:
+            a_float = float(a)
+            b_float = float(b)
+            c_float = float(c)
+        except ValueError:
+            print("erreur de données")
+        else:
+            if cart2geo:
+                print("cart2geo")
+                phi, lamda, h = convert_cart2geo(a_float, b_float, c_float)
+                self.ui.fct2_phi.setText(str(phi))
+                self.ui.fct2_lambda.setText(str(lamda))
+                self.ui.fct2_h.setText(str(h))
+
+            else:
+                print("geo2cart")
+                x, y, z = convert_geo2cart(a_float, b_float, c_float)
+                self.ui.fct2_x.setText(str(x))
+                self.ui.fct2_y.setText(str(y))
+                self.ui.fct2_z.setText(str(z))
+
+    def page3(self, x):
+        try:
+            x_float = float(x)
+        except ValueError:
+            print("erreur de donnés")
+        else:
+            beta, phi, psi = get_3_altitudes(x_float)
+            self.ui.fct3_beta.setText(str(beta))
+            self.ui.fct3_psi.setText(str(psi))
+            self.ui.fct3_phi.setText(str(phi))
+
     def page1_clear_outputs(self):
         self.ui.applatissement.clear()
         self.ui.premier_e.clear()
@@ -60,11 +100,13 @@ class MainWindow(QMainWindow):
         self.ui.e_angulaire.clear()
         self.ui.c_a_pole.clear()
 
+
     def show_error(self, label_obj, erreur):
         label_obj.setStyleSheet("color: red")
         label_obj.setText(erreur)
         label_obj.adjustSize()
         label_obj.setVisible(True)
+
 
     def slideLeftMenu(self):
         width = self.ui.left_side_menu.width()

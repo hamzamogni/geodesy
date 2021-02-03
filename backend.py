@@ -5,10 +5,10 @@ import scipy.integrate
 import numpy as n
 
 a_wgs = 6378137
-b_wgs = 6356752.3142
+b_wgs = 6356752.314
 
 
-def get_ellipsoid_parameters(a=6378137, b=6356752.3142):
+def get_ellipsoid_parameters(a=6378137, b=6356752.314):
     return {
         "applatissement": 1 - b / a,
         "excentricite_1": 1 - (b / a) ** 2,
@@ -44,24 +44,25 @@ def convert_geo2cart(phi, lam, h):
     # h in meters
     phi_rad = m.radians(phi)
     lambda_rad = m.radians(lam)
-    s = m.sin(lambda_rad)
-    N = a_wgs / m.sqrt(1 - get_ellipsoid_parameters()["excentricite_1"] * s * s)
+    s = m.sin(phi_rad)
+    N = a_wgs / m.sqrt(1 - get_ellipsoid_parameters()["excentricite_1"] * s**2)
 
     sin_lambda = m.sin(lambda_rad)
     cos_lambda = m.cos(lambda_rad)
     sin_phi = m.sin(phi_rad)
     cos_phi = m.cos(phi_rad)
 
-    x = (h + N) * cos_lambda * cos_phi
-    y = (h + N) * cos_lambda * sin_phi
-    z = (h + (1 - get_ellipsoid_parameters()["excentricite_1"]) * N) * sin_lambda
+    x = (h + N) * cos_phi * cos_lambda
+    y = (h + N) * sin_lambda * cos_phi
+    z = (h + (1 - get_ellipsoid_parameters()["excentricite_1"]) * N) * sin_phi
 
     return x, y, z
 
 
 def convert_cart2geo(x, y, z):
-    applatissement = get_ellipsoid_parameters()["applatissment"]
+    applatissement = get_ellipsoid_parameters()["applatissement"]
     excentricite_1 = get_ellipsoid_parameters()["excentricite_1"]
+
     r = m.sqrt(x ** 2 + y ** 2 + z ** 2)
     u = m.atan((z / m.sqrt(x ** 2 + y ** 2) * ((1 - applatissement) + (
             a_wgs * excentricite_1) / r)))
@@ -69,7 +70,7 @@ def convert_cart2geo(x, y, z):
     L = m.atan(y / x)
 
     phi = m.atan((z * (1 - applatissement) + (
-            excentricite_1 * a_wgs * m.sin(u) ** 2)) / (
+            excentricite_1 * a_wgs * m.sin(u) ** 3)) / (
                          (1 - applatissement) * (
                          m.sqrt(x ** 2 + y ** 2) - excentricite_1 * a_wgs * m.cos(
                      u) ** 3)))
@@ -82,8 +83,8 @@ def convert_cart2geo(x, y, z):
 
 def get_3_altitudes(x):
     beta = m.acos(x / a_wgs)
-    psi = m.atan((b_wgs / a_wgs * m.tan(beta)))
-    phi = m.atan(a_wgs / b_wgs * m.tan(beta))
+    psi = m.atan((b_wgs / a_wgs) * m.tan(beta))
+    phi = m.atan((a_wgs / b_wgs) * m.tan(beta))
 
     return beta, phi, psi
 
