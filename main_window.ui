@@ -1835,7 +1835,7 @@ image: url(:/buttons/alpha.png);</string>
            <widget class="QTabWidget" name="tabWidget_2">
             <property name="geometry">
              <rect>
-              <x>70</x>
+              <x>30</x>
               <y>90</y>
               <width>611</width>
               <height>381</height>
@@ -1852,7 +1852,7 @@ image: url(:/buttons/alpha.png);</string>
               <property name="geometry">
                <rect>
                 <x>40</x>
-                <y>100</y>
+                <y>140</y>
                 <width>41</width>
                 <height>31</height>
                </rect>
@@ -1871,17 +1871,17 @@ image: url(:/buttons/alpha.png);</string>
               <property name="geometry">
                <rect>
                 <x>110</x>
-                <y>90</y>
+                <y>130</y>
                 <width>121</width>
                 <height>31</height>
                </rect>
               </property>
              </widget>
-             <widget class="QPushButton" name="fct5_cal">
+             <widget class="QPushButton" name="fct5_cal_btn">
               <property name="geometry">
                <rect>
                 <x>130</x>
-                <y>140</y>
+                <y>180</y>
                 <width>81</width>
                 <height>41</height>
                </rect>
@@ -1905,11 +1905,11 @@ QPushButton:hover{
                <string>Calculer</string>
               </property>
              </widget>
-             <widget class="QLabel" name="page4_erreur3_2">
+             <widget class="QLabel" name="page_erreur1">
               <property name="geometry">
                <rect>
                 <x>30</x>
-                <y>220</y>
+                <y>260</y>
                 <width>47</width>
                 <height>13</height>
                </rect>
@@ -1964,7 +1964,7 @@ QPushButton:hover{
               <property name="geometry">
                <rect>
                 <x>40</x>
-                <y>30</y>
+                <y>70</y>
                 <width>41</width>
                 <height>31</height>
                </rect>
@@ -1983,7 +1983,7 @@ QPushButton:hover{
               <property name="geometry">
                <rect>
                 <x>110</x>
-                <y>30</y>
+                <y>70</y>
                 <width>121</width>
                 <height>31</height>
                </rect>
@@ -1993,7 +1993,7 @@ QPushButton:hover{
               <property name="geometry">
                <rect>
                 <x>70</x>
-                <y>50</y>
+                <y>90</y>
                 <width>16</width>
                 <height>16</height>
                </rect>
@@ -2013,7 +2013,7 @@ QPushButton:hover{
               <property name="geometry">
                <rect>
                 <x>70</x>
-                <y>120</y>
+                <y>160</y>
                 <width>16</width>
                 <height>16</height>
                </rect>
@@ -2067,7 +2067,7 @@ QPushButton:hover{
                <enum>Qt::Vertical</enum>
               </property>
              </widget>
-             <widget class="QPushButton" name="fct5_cal_2">
+             <widget class="QPushButton" name="fct5_cal_2_btn">
               <property name="geometry">
                <rect>
                 <x>160</x>
@@ -2095,7 +2095,7 @@ QPushButton:hover{
                <string>Calculer</string>
               </property>
              </widget>
-             <widget class="QLabel" name="page4_erreur3_3">
+             <widget class="QLabel" name="page5_erreur2">
               <property name="geometry">
                <rect>
                 <x>40</x>
@@ -2246,8 +2246,8 @@ QPushButton:hover{
              <zorder>fct5_lambda1</zorder>
              <zorder>fct5_lambda2</zorder>
              <zorder>line_10</zorder>
-             <zorder>fct5_cal_2</zorder>
-             <zorder>page4_erreur3_3</zorder>
+             <zorder>fct5_cal_2_btn</zorder>
+             <zorder>page5_erreur2</zorder>
              <zorder>fct5_l</zorder>
              <zorder>frame_8</zorder>
              <zorder>frame_20</zorder>
@@ -2266,14 +2266,293 @@ QPushButton:hover{
            <widget class="QLabel" name="titlef6">
             <property name="geometry">
              <rect>
-              <x>170</x>
-              <y>10</y>
-              <width>331</width>
+              <x>10</x>
+              <y>30</y>
+              <width>611</width>
               <height>81</height>
              </rect>
             </property>
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:48pt; color:#00aa7f;&quot;&gt;Fonction 6:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:26pt; color:#00aa7f;&quot;&gt;Calcul du surface d'une partie terrestre&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="fct6_alpha1">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>170</y>
+              <width>121</width>
+              <height>31</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="fct6_alpha2">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>230</y>
+              <width>121</width>
+              <height>31</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="fct6_l1">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>290</y>
+              <width>121</width>
+              <height>31</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="fct6_l2">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>350</y>
+              <width>121</width>
+              <height>31</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QFrame" name="frame_24">
+            <property name="geometry">
+             <rect>
+              <x>110</x>
+              <y>230</y>
+              <width>41</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/buttons/phi.png);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+           <widget class="QFrame" name="frame_27">
+            <property name="geometry">
+             <rect>
+              <x>110</x>
+              <y>160</y>
+              <width>41</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/buttons/phi.png);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+           <widget class="QLabel" name="page4_erreur3_8">
+            <property name="geometry">
+             <rect>
+              <x>140</x>
+              <y>250</y>
+              <width>16</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>2</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="page4_erreur3_7">
+            <property name="geometry">
+             <rect>
+              <x>140</x>
+              <y>180</y>
+              <width>16</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>1</string>
+            </property>
+           </widget>
+           <widget class="QFrame" name="frame_28">
+            <property name="geometry">
+             <rect>
+              <x>120</x>
+              <y>290</y>
+              <width>31</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/buttons/L.png);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+           <widget class="QFrame" name="frame_32">
+            <property name="geometry">
+             <rect>
+              <x>120</x>
+              <y>350</y>
+              <width>31</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/buttons/L.png);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+           <widget class="QLabel" name="page4_erreur3_9">
+            <property name="geometry">
+             <rect>
+              <x>150</x>
+              <y>370</y>
+              <width>16</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>2</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="page4_erreur3_10">
+            <property name="geometry">
+             <rect>
+              <x>150</x>
+              <y>310</y>
+              <width>16</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>1</string>
+            </property>
+           </widget>
+           <widget class="Line" name="line_11">
+            <property name="geometry">
+             <rect>
+              <x>340</x>
+              <y>130</y>
+              <width>20</width>
+              <height>361</height>
+             </rect>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="fct6_calculer_btn">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>410</y>
+              <width>81</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+   padding: 5px 10px;
+   border: none;
+   border-radius: 5px;
+   background-color: #9aa298;
+   color: #fff;
+}
+QPushButton:hover{
+   background-color: #101010;
+}</string>
+            </property>
+            <property name="text">
+             <string>Calculer</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="page6_erreur">
+            <property name="geometry">
+             <rect>
+              <x>50</x>
+              <y>470</y>
+              <width>47</width>
+              <height>13</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="fct6_z">
+            <property name="geometry">
+             <rect>
+              <x>470</x>
+              <y>230</y>
+              <width>121</width>
+              <height>31</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QFrame" name="frame_34">
+            <property name="geometry">
+             <rect>
+              <x>410</x>
+              <y>230</y>
+              <width>31</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/buttons/Z1.png);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
             </property>
            </widget>
           </widget>
