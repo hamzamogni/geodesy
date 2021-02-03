@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="buttons">
+    <file>R.png</file>
+    <file>alpha.png</file>
+    <file>N.png</file>
+    <file>M.png</file>
     <file>beta.png</file>
     <file>delta.png</file>
     <file>psi.png</file>

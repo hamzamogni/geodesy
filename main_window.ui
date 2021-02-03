@@ -567,7 +567,7 @@ QPushButton:hover{
 </string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="fonction1">
            <property name="styleSheet">
@@ -1365,21 +1365,21 @@ QPushButton:hover{
            <widget class="QLabel" name="titlef4">
             <property name="geometry">
              <rect>
-              <x>10</x>
+              <x>180</x>
               <y>10</y>
               <width>331</width>
-              <height>81</height>
+              <height>41</height>
              </rect>
             </property>
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:48pt; color:#00aa7f;&quot;&gt;Fonction 4:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:26pt; color:#00aa7f;&quot;&gt;Rayons du courbure&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
            </widget>
            <widget class="QTabWidget" name="tabWidget">
             <property name="geometry">
              <rect>
               <x>40</x>
-              <y>100</y>
+              <y>90</y>
               <width>611</width>
               <height>381</height>
              </rect>
@@ -1391,7 +1391,7 @@ QPushButton:hover{
              <attribute name="title">
               <string>Rayon du courbure méridiane</string>
              </attribute>
-             <widget class="QLineEdit" name="lineEdit_14">
+             <widget class="QLineEdit" name="fct4_phi">
               <property name="geometry">
                <rect>
                 <x>100</x>
@@ -1401,7 +1401,7 @@ QPushButton:hover{
                </rect>
               </property>
              </widget>
-             <widget class="QPushButton" name="calculer_6">
+             <widget class="QPushButton" name="fct4_cal1">
               <property name="geometry">
                <rect>
                 <x>110</x>
@@ -1464,14 +1464,14 @@ QPushButton:hover{
              <widget class="QFrame" name="frame_19">
               <property name="geometry">
                <rect>
-                <x>320</x>
+                <x>330</x>
                 <y>100</y>
                 <width>41</width>
-                <height>41</height>
+                <height>51</height>
                </rect>
               </property>
               <property name="styleSheet">
-               <string notr="true">image: url(:/buttons/phi.png);</string>
+               <string notr="true">image: url(:/buttons/M.png);</string>
               </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -1480,10 +1480,10 @@ QPushButton:hover{
                <enum>QFrame::Raised</enum>
               </property>
              </widget>
-             <widget class="QLineEdit" name="lineEdit_26">
+             <widget class="QLineEdit" name="fct4_m">
               <property name="geometry">
                <rect>
-                <x>410</x>
+                <x>390</x>
                 <y>110</y>
                 <width>121</width>
                 <height>31</height>
@@ -1495,7 +1495,7 @@ QPushButton:hover{
              <attribute name="title">
               <string>Rayon du courbure 1er vertical</string>
              </attribute>
-             <widget class="QPushButton" name="calculer_7">
+             <widget class="QPushButton" name="fct4_cal2">
               <property name="geometry">
                <rect>
                 <x>120</x>
@@ -1536,7 +1536,7 @@ QPushButton:hover{
                <enum>Qt::Vertical</enum>
               </property>
              </widget>
-             <widget class="QLineEdit" name="lineEdit_15">
+             <widget class="QLineEdit" name="fct4_psi">
               <property name="geometry">
                <rect>
                 <x>100</x>
@@ -1556,7 +1556,7 @@ QPushButton:hover{
                </rect>
               </property>
               <property name="styleSheet">
-               <string notr="true">image: url(:/buttons/phi.png);</string>
+               <string notr="true">image: url(:/buttons/psi.png);</string>
               </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -1568,14 +1568,14 @@ QPushButton:hover{
              <widget class="QFrame" name="frame_29">
               <property name="geometry">
                <rect>
-                <x>300</x>
+                <x>320</x>
                 <y>110</y>
                 <width>41</width>
                 <height>41</height>
                </rect>
               </property>
               <property name="styleSheet">
-               <string notr="true">image: url(:/buttons/phi.png);</string>
+               <string notr="true">image: url(:/buttons/N.png);</string>
               </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -1584,7 +1584,7 @@ QPushButton:hover{
                <enum>QFrame::Raised</enum>
               </property>
              </widget>
-             <widget class="QLineEdit" name="lineEdit_24">
+             <widget class="QLineEdit" name="fct4_n">
               <property name="geometry">
                <rect>
                 <x>370</x>
@@ -1599,11 +1599,11 @@ QPushButton:hover{
              <attribute name="title">
               <string>Rayon du courbure selon l'azimut ALPHA</string>
              </attribute>
-             <widget class="QPushButton" name="calculer_8">
+             <widget class="QPushButton" name="fct4_cal3">
               <property name="geometry">
                <rect>
                 <x>130</x>
-                <y>160</y>
+                <y>210</y>
                 <width>81</width>
                 <height>41</height>
                </rect>
@@ -1640,7 +1640,7 @@ QPushButton:hover{
                <enum>Qt::Vertical</enum>
               </property>
              </widget>
-             <widget class="QLineEdit" name="lineEdit_16">
+             <widget class="QLineEdit" name="fct4_psi1">
               <property name="geometry">
                <rect>
                 <x>120</x>
@@ -1653,14 +1653,14 @@ QPushButton:hover{
              <widget class="QFrame" name="frame_30">
               <property name="geometry">
                <rect>
-                <x>50</x>
+                <x>60</x>
                 <y>60</y>
                 <width>41</width>
                 <height>41</height>
                </rect>
               </property>
               <property name="styleSheet">
-               <string notr="true">image: url(:/buttons/phi.png);</string>
+               <string notr="true">image: url(:/buttons/psi.png);</string>
               </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -1669,30 +1669,79 @@ QPushButton:hover{
                <enum>QFrame::Raised</enum>
               </property>
              </widget>
-             <widget class="QFrame" name="frame_33">
-              <property name="geometry">
-               <rect>
-                <x>330</x>
-                <y>100</y>
-                <width>41</width>
-                <height>41</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">image: url(:/buttons/phi.png);</string>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-             </widget>
-             <widget class="QLineEdit" name="lineEdit_22">
+             <widget class="QLineEdit" name="fct4_ralpha">
               <property name="geometry">
                <rect>
                 <x>400</x>
                 <y>110</y>
+                <width>121</width>
+                <height>31</height>
+               </rect>
+              </property>
+             </widget>
+             <widget class="QFrame" name="frame_5">
+              <property name="geometry">
+               <rect>
+                <x>330</x>
+                <y>100</y>
+                <width>61</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">image: url(:/buttons/R.png);</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <widget class="QFrame" name="frame_33">
+               <property name="geometry">
+                <rect>
+                 <x>40</x>
+                 <y>20</y>
+                 <width>16</width>
+                 <height>16</height>
+                </rect>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">image: url(:/buttons/R.png);
+image: url(:/buttons/alpha.png);</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+              </widget>
+             </widget>
+             <widget class="QFrame" name="frame_31">
+              <property name="geometry">
+               <rect>
+                <x>70</x>
+                <y>150</y>
+                <width>31</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">image: url(:/buttons/alpha.png);</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="fct4_alpha">
+              <property name="geometry">
+               <rect>
+                <x>120</x>
+                <y>150</y>
                 <width>121</width>
                 <height>31</height>
                </rect>
