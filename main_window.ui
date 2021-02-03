@@ -1166,6 +1166,19 @@ QPushButton:hover{
              <enum>Qt::Vertical</enum>
             </property>
            </widget>
+           <widget class="QLabel" name="page2_erreur">
+            <property name="geometry">
+             <rect>
+              <x>120</x>
+              <y>380</y>
+              <width>47</width>
+              <height>13</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="fonction3">
            <property name="styleSheet">
@@ -1357,6 +1370,19 @@ QPushButton:hover{
              </property>
             </widget>
            </widget>
+           <widget class="QLabel" name="page3_erreur">
+            <property name="geometry">
+             <rect>
+              <x>100</x>
+              <y>370</y>
+              <width>47</width>
+              <height>13</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="fonction4">
            <property name="styleSheet">
@@ -1490,6 +1516,19 @@ QPushButton:hover{
                </rect>
               </property>
              </widget>
+             <widget class="QLabel" name="page4_erreur1">
+              <property name="geometry">
+               <rect>
+                <x>30</x>
+                <y>250</y>
+                <width>47</width>
+                <height>13</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
             </widget>
             <widget class="QWidget" name="ray_v">
              <attribute name="title">
@@ -1592,6 +1631,19 @@ QPushButton:hover{
                 <width>121</width>
                 <height>31</height>
                </rect>
+              </property>
+             </widget>
+             <widget class="QLabel" name="page4_erreur2">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>260</y>
+                <width>47</width>
+                <height>13</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>TextLabel</string>
               </property>
              </widget>
             </widget>
@@ -1745,6 +1797,19 @@ image: url(:/buttons/alpha.png);</string>
                 <width>121</width>
                 <height>31</height>
                </rect>
+              </property>
+             </widget>
+             <widget class="QLabel" name="page4_erreur3">
+              <property name="geometry">
+               <rect>
+                <x>60</x>
+                <y>280</y>
+                <width>47</width>
+                <height>13</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>TextLabel</string>
               </property>
              </widget>
             </widget>
