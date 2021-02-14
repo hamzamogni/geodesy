@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="buttons">
+    <file>17.jpg</file>
+    <file>18.jpg</file>
     <file>segma.png</file>
     <file>Z1.png</file>
     <file>111.png</file>

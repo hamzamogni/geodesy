@@ -567,7 +567,7 @@ QPushButton:hover{
 </string>
           </property>
           <property name="currentIndex">
-           <number>6</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="fonction1">
            <property name="styleSheet">
@@ -1179,6 +1179,41 @@ QPushButton:hover{
              <string>TextLabel</string>
             </property>
            </widget>
+           <widget class="QFrame" name="frame_41">
+            <property name="geometry">
+             <rect>
+              <x>50</x>
+              <y>40</y>
+              <width>51</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/buttons/1100.png);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+           <zorder>line_2</zorder>
+           <zorder>line_3</zorder>
+           <zorder>frame_41</zorder>
+           <zorder>titlef2</zorder>
+           <zorder>frame</zorder>
+           <zorder>fct2_phi</zorder>
+           <zorder>fct2_h</zorder>
+           <zorder>fct2_lambda</zorder>
+           <zorder>fct2_c2g</zorder>
+           <zorder>frame_9</zorder>
+           <zorder>fct2_z</zorder>
+           <zorder>fct2_y</zorder>
+           <zorder>fct2_x</zorder>
+           <zorder>fct2_g2c</zorder>
+           <zorder>line_4</zorder>
+           <zorder>page2_erreur</zorder>
           </widget>
           <widget class="QWidget" name="fonction3">
            <property name="styleSheet">
@@ -3674,6 +3709,44 @@ background-color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Designed By : MEJDOUB Abdelkader &amp;amp; MOGNI Hamza&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_39">
+       <property name="geometry">
+        <rect>
+         <x>560</x>
+         <y>10</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/buttons/17.jpg);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_37">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>10</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/buttons/18.jpg);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
        </property>
       </widget>
      </widget>
