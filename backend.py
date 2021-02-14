@@ -120,16 +120,26 @@ def get_courbure_azimut(alpha, psi):
     return (courbure * m.sin(alpha_rad) ** 2 + rayon_1_verticale * m.cos(alpha_rad) ** 2) / courbure * rayon_1_verticale
 
 
-def get_longeur_meridien(Phi):
+def get_longeur_meridien(phi1, phi2):
     excentricite_1 = get_ellipsoid_parameters()["excentricite_1"]
+
+    phi1_rad = m.radians(phi1)
+    phi2_rad = m.radians(phi2)
 
     f = lambda x: (1 - excentricite_1 * n.sin(x) ** 2) ** (-3 / 2)
-    return b_wgs * scipy.integrate.quad(f, 0, m.radians(Phi))[0] / 1000
+    zero_phi1 = b_wgs * scipy.integrate.quad(f, 0, m.radians(phi1_rad))[0] / 1000
+    zero_phi2 = b_wgs * scipy.integrate.quad(f, 0, m.radians(phi2_rad))[0] / 1000
+
+    return m.fabs(zero_phi1 - zero_phi2)
 
 
-def get_longueur_parallele(phi, delta_lambda):
+def get_longueur_parallele(phi, lambda1, lambda2):
     excentricite_1 = get_ellipsoid_parameters()["excentricite_1"]
     phi_rad = m.radians(phi)
+    lambda1_rad = m.radians(lambda1)
+    lambda2_rad = m.radians(lambda2)
+    delta_lambda = m.fabs(lambda1_rad - lambda2_rad)
+
     N = a_wgs / (1 - excentricite_1 * m.sin(phi_rad) ** 2)
 
     return N * m.cos(phi_rad) * delta_lambda
@@ -147,4 +157,4 @@ def get_surface_partie_terre(l1, l2, phi1, phi2):
         lambda x: n.cos(x) * (1 - excentricite_1 * n.sin(x) ** 2) ** -2,
         phi1_rad,
         phi2_rad)
-    return b_wgs ** 2 * (l2_rad - l1_rad) * integral[0]
+    return m.fabs(b_wgs ** 2 * (l2_rad - l1_rad) * integral[0])

@@ -30,27 +30,63 @@ class MainWindow(QMainWindow):
         self.ui.homeButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.Home))
         self.ui.pushButton_leftMenu.clicked.connect(lambda: self.slideLeftMenu())
 
-        self.ui.calculer.clicked.connect(lambda: self.page1(self.ui.a.text(), self.ui.b.text()))
+        self.ui.calculer.clicked.connect(lambda: self.page1(self.ui.a, self.ui.b))
 
         self.ui.fct2_g2c.clicked.connect(
-            lambda: self.page2(0, self.ui.fct2_phi.text(), self.ui.fct2_lambda.text(), self.ui.fct2_h.text()))
+            lambda: self.page2(0, self.ui.fct2_phi, self.ui.fct2_lambda, self.ui.fct2_h))
         self.ui.fct2_c2g.clicked.connect(
-            lambda: self.page2(1, self.ui.fct2_x.text(), self.ui.fct2_y.text(), self.ui.fct2_z.text()))
+            lambda: self.page2(1, self.ui.fct2_x, self.ui.fct2_y, self.ui.fct2_z))
 
-        self.ui.fct3_altitu_btn.clicked.connect(lambda: self.page3(self.ui.fct3_x.text()))
+        self.ui.fct3_altitu_btn.clicked.connect(lambda: self.page3(self.ui.fct3_x))
 
-        self.ui.page1_erreur.setVisible(False)
+        self.ui.fct4_cal1.clicked.connect(lambda: self.page4_meridien(self.ui.fct4_phi))
+        self.ui.fct4_cal2.clicked.connect(lambda: self.page4_1er_verticale(self.ui.fct4_psi))
+        self.ui.fct4_cal3.clicked.connect(
+            lambda: self.page4_azimuth(self.ui.fct4_psi1, self.ui.fct4_alpha))
+
+        self.ui.fct5_cal_btn.clicked.connect(
+            lambda: self.page5_long_meridienne(self.ui.fct5_phi1, self.ui.fct5_phi2))
+
+        self.ui.fct5_cal_2_btn.clicked.connect(
+            lambda: self.page5_long_paralelle(self.ui.fct5_phi21, self.ui.fct5_lambda1,
+                                              self.ui.fct5_lambda2))
+
+        self.ui.fct6_calculer_btn.clicked.connect(
+            lambda: self.page6(
+                self.ui.fct6_alpha1,
+                self.ui.fct6_alpha2,
+                self.ui.fct6_l1,
+                self.ui.fct6_l2)
+        )
+
+        self.ERRORS = {
+            "FALSE_VALUES": "Merci d'entrer des valeurs valides"
+        }
+
+        self.ERROR_LABELS = [
+            self.ui.page1_erreur,
+            self.ui.page2_erreur,
+            self.ui.page3_erreur,
+            self.ui.page4_erreur1,
+            self.ui.page4_erreur2,
+            self.ui.page4_erreur3,
+            self.ui.page5_erreur1,
+            self.ui.page5_erreur2,
+            self.ui.page6_erreur,
+        ]
+
+        self.set_errors_visibility(False)
 
         self.show()
 
     def page1(self, a, b):
         self.ui.page1_erreur.setVisible(False)
         try:
-            a_float = float(a)
-            b_float = float(b)
+            a_float = float(a.text())
+            b_float = float(b.text())
         except ValueError:
-            self.page1_clear_outputs()
-            self.show_error(self.ui.page1_erreur, "Merci d'entrer des valeurs justes pour a et b")
+            self.clear_outputs([a, b])
+            self.show_error(self.ui.page1_erreur, self.ERRORS["FALSE_VALUES"])
         else:
             res = get_ellipsoid_parameters(a_float, b_float)
 
@@ -62,21 +98,20 @@ class MainWindow(QMainWindow):
 
     def page2(self, cart2geo, a, b, c):
         try:
-            a_float = float(a)
-            b_float = float(b)
-            c_float = float(c)
+            a_float = float(a.text())
+            b_float = float(b.text())
+            c_float = float(c.text())
         except ValueError:
-            print("erreur de données")
+            self.clear_outputs([a, b, c])
+            self.show_error(self.ui.page2_erreur, self.ERRORS["FALSE_VALUES"])
         else:
             if cart2geo:
-                print("cart2geo")
                 phi, lamda, h = convert_cart2geo(a_float, b_float, c_float)
                 self.ui.fct2_phi.setText(str(phi))
                 self.ui.fct2_lambda.setText(str(lamda))
                 self.ui.fct2_h.setText(str(h))
 
             else:
-                print("geo2cart")
                 x, y, z = convert_geo2cart(a_float, b_float, c_float)
                 self.ui.fct2_x.setText(str(x))
                 self.ui.fct2_y.setText(str(y))
@@ -84,28 +119,98 @@ class MainWindow(QMainWindow):
 
     def page3(self, x):
         try:
-            x_float = float(x)
+            x_float = float(x.text())
         except ValueError:
-            print("erreur de donnés")
+            self.clear_outputs([x])
+            self.show_error(self.ui.page3_erreur, self.ERRORS["FALSE_VALUES"])
         else:
             beta, phi, psi = get_3_altitudes(x_float)
             self.ui.fct3_beta.setText(str(beta))
             self.ui.fct3_psi.setText(str(psi))
             self.ui.fct3_phi.setText(str(phi))
 
-    def page1_clear_outputs(self):
-        self.ui.applatissement.clear()
-        self.ui.premier_e.clear()
-        self.ui.deuxieme_e.clear()
-        self.ui.e_angulaire.clear()
-        self.ui.c_a_pole.clear()
+    def page4_meridien(self, phi):
+        try:
+            phi_float = float(phi.text())
+        except ValueError:
+            self.clear_outputs([phi])
+            self.show_error(self.ui.page4_erreur1, self.ERRORS["FALSE_VALUES"])
+        else:
+            long = get_rayon_courbure(phi_float)
+            self.ui.fct4_m.setText(str(long))
 
+    def page4_1er_verticale(self, psi):
+        try:
+            psi_float = float(psi.text())
+        except ValueError:
+            self.clear_outputs([psi])
+            self.show_error(self.ui.page4_erreur2, self.ERRORS["FALSE_VALUES"])
+        else:
+            long = get_rayon_1ere_verticale(psi_float)
+            self.ui.fct4_n.setText(str(long))
 
-    def show_error(self, label_obj, erreur):
+    def page4_azimuth(self, psi, alpha):
+        try:
+            psi_float = float(psi.text())
+            alpha_float = float(alpha.text())
+        except ValueError:
+            self.clear_outputs([psi, alpha])
+            self.show_error(self.ui.page4_erreur3, self.ERRORS["FALSE_VALUES"])
+        else:
+            courb_azimuth = get_courbure_azimut(alpha_float, psi_float)
+            self.ui.fct4_ralpha.setText(str(courb_azimuth))
+
+    def page5_long_meridienne(self, phi1, phi2):
+        try:
+            phi1_float = float(phi1.text())
+            phi2_float = float(phi2.text())
+        except ValueError:
+            self.clear_outputs([phi1, phi2])
+            self.show_error(self.ui.page5_erreur1, self.ERRORS["FALSE_VALUES"])
+        else:
+            long = get_longeur_meridien(phi1_float, phi2_float)
+            self.ui.fct5_s.setText(str(long))
+
+    def page5_long_paralelle(self, phi, lambda1, lambda2):
+        try:
+            phi_float = float(phi.text())
+            lambda1_float = float(lambda1.text())
+            lambda2_float = float(lambda2.text())
+        except ValueError:
+            self.clear_outputs([phi, lambda1, lambda2])
+            self.show_error(self.ui.page5_erreur2, self.ERRORS["FALSE_VALUES"])
+        else:
+            long = get_longueur_parallele(phi_float, lambda1_float, lambda2_float)
+            self.ui.fct5_l.setText(str(long))
+
+    def page6(self, phi1, phi2, lambda1, lambda2):
+        try:
+            phi1_float = float(phi1.text())
+            phi2_float = float(phi2.text())
+            lambda1_float = float(lambda1.text())
+            lambda2_float = float(lambda2.text())
+        except ValueError:
+            self.clear_outputs([phi1, phi2, lambda1, lambda2])
+            self.show_error(self.ui.page6_erreur, self.ERRORS["FALSE_VALUES"])
+        else:
+            surface = get_surface_partie_terre(lambda1_float, lambda2_float, phi1_float, phi2_float)
+            self.ui.fct6_z.setText(str(surface))
+
+    @staticmethod
+    def show_error(label_obj, erreur):
         label_obj.setStyleSheet("color: red")
         label_obj.setText(erreur)
         label_obj.adjustSize()
         label_obj.setVisible(True)
+
+    @staticmethod
+    def clear_outputs(outputs):
+        for text_box in outputs:
+            text_box.clear()
+
+    def set_errors_visibility(self, value: bool):
+        for label in self.ERROR_LABELS:
+            label.setVisible(value)
 
 
     def slideLeftMenu(self):
