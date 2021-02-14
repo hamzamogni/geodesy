@@ -19,6 +19,10 @@ class MainWindow(QMainWindow):
         self.shadow.setColor(QColor(255, 255, 255, 255))
         self.ui.centralwidget.setGraphicsEffect(self.shadow)
         self.ui.stackedWidget.setCurrentWidget(self.ui.Home)
+
+        ######################
+        #   STACKED WIDGET   #
+        ######################
         self.ui.fct1.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.fonction1))
         self.ui.fct2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.fonction2))
         self.ui.fct3.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.fonction3))
@@ -28,28 +32,70 @@ class MainWindow(QMainWindow):
         self.ui.fct7.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.fonction7))
         self.ui.fct8.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.fonction8))
         self.ui.homeButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.Home))
-        self.ui.pushButton_leftMenu.clicked.connect(lambda: self.slideLeftMenu())
 
-        self.ui.calculer.clicked.connect(lambda: self.page1(self.ui.a, self.ui.b))
+        ######################
+        #     SLIDE MENU     #
+        ######################
+        self.ui.pushButton_leftMenu.clicked.connect(lambda: self.slide_left_menu())
+
+        ########################
+        #  CONNECTING EVENTS   #
+        ########################
+        self.ui.calculer.clicked.connect(
+            lambda: self.page1(
+                self.ui.a,
+                self.ui.b)
+        )
 
         self.ui.fct2_g2c.clicked.connect(
-            lambda: self.page2(0, self.ui.fct2_phi, self.ui.fct2_lambda, self.ui.fct2_h))
+            lambda: self.page2(
+                0,
+                self.ui.fct2_phi,
+                self.ui.fct2_lambda,
+                self.ui.fct2_h)
+        )
+
         self.ui.fct2_c2g.clicked.connect(
-            lambda: self.page2(1, self.ui.fct2_x, self.ui.fct2_y, self.ui.fct2_z))
+            lambda: self.page2(
+                1,
+                self.ui.fct2_x,
+                self.ui.fct2_y,
+                self.ui.fct2_z)
+        )
 
-        self.ui.fct3_altitu_btn.clicked.connect(lambda: self.page3(self.ui.fct3_x))
+        self.ui.fct3_altitu_btn.clicked.connect(
+            lambda: self.page3(
+                self.ui.fct3_x)
+        )
 
-        self.ui.fct4_cal1.clicked.connect(lambda: self.page4_meridien(self.ui.fct4_phi))
-        self.ui.fct4_cal2.clicked.connect(lambda: self.page4_1er_verticale(self.ui.fct4_psi))
+        self.ui.fct4_cal1.clicked.connect(
+            lambda: self.page4_meridien(
+                self.ui.fct4_phi)
+        )
+
+        self.ui.fct4_cal2.clicked.connect(
+            lambda: self.page4_1er_verticale(
+                self.ui.fct4_psi)
+        )
+
         self.ui.fct4_cal3.clicked.connect(
-            lambda: self.page4_azimuth(self.ui.fct4_psi1, self.ui.fct4_alpha))
+            lambda: self.page4_azimuth(
+                self.ui.fct4_psi1,
+                self.ui.fct4_alpha)
+        )
 
         self.ui.fct5_cal_btn.clicked.connect(
-            lambda: self.page5_long_meridienne(self.ui.fct5_phi1, self.ui.fct5_phi2))
+            lambda: self.page5_long_meridienne(
+                self.ui.fct5_phi1,
+                self.ui.fct5_phi2)
+        )
 
         self.ui.fct5_cal_2_btn.clicked.connect(
-            lambda: self.page5_long_paralelle(self.ui.fct5_phi21, self.ui.fct5_lambda1,
-                                              self.ui.fct5_lambda2))
+            lambda: self.page5_long_paralelle(
+                self.ui.fct5_phi21,
+                self.ui.fct5_lambda1,
+                self.ui.fct5_lambda2)
+        )
 
         self.ui.fct6_calculer_btn.clicked.connect(
             lambda: self.page6(
@@ -59,10 +105,34 @@ class MainWindow(QMainWindow):
                 self.ui.fct6_l2)
         )
 
+        self.ui.fct7_btn.clicked.connect(
+            lambda: self.page_pd(
+                self.ui.fct_phi1,
+                self.ui.fct7_lambda1,
+                self.ui.fct7_A12,
+                self.ui.fct7_d12
+            )
+        )
+
+        self.ui.fct8_btn.clicked.connect(
+            lambda: self.page_pi(
+                self.ui.fct8_phi1,
+                self.ui.fct8_phi2,
+                self.ui.fct8_lambda1,
+                self.ui.fct8_lambda2
+            )
+        )
+
+        #############################
+        #          ERRORS           #
+        #############################
         self.ERRORS = {
             "INVALID_INPUTS": "Merci d'entrer des valeurs valides"
         }
 
+        #############################
+        #       ERRORS LABELS       #
+        #############################
         self.ERROR_LABELS = [
             self.ui.page1_erreur,
             self.ui.page2_erreur,
@@ -73,8 +143,13 @@ class MainWindow(QMainWindow):
             self.ui.page5_erreur1,
             self.ui.page5_erreur2,
             self.ui.page6_erreur,
+            self.ui.page7_erreur,
+            self.ui.page8_erreur,
         ]
 
+        #############################
+        #      OUTPUTS OBJECTS      #
+        #############################
         self.OUTPUTS = [
             self.ui.applatissement,
             self.ui.premier_e,
@@ -96,14 +171,19 @@ class MainWindow(QMainWindow):
             self.ui.fct5_l,
             self.ui.fct5_s,
             self.ui.fct6_z,
+            self.ui.fct7_phi2,
+            self.ui.fct7_lambda2,
+            self.ui.fct7_A21,
+            self.ui.fct8_A12,
+            self.ui.fct8_segma12,
         ]
 
+        # we hide errors when we start the app
         self.set_errors_visibility(False)
 
         self.show()
 
     def page1(self, a, b):
-        self.ui.page1_erreur.setVisible(False)
         try:
             a_float = float(a.text())
             b_float = float(b.text())
@@ -229,6 +309,40 @@ class MainWindow(QMainWindow):
             self.ui.fct6_z.setText(str(self.rounding(surface)))
             self.set_errors_visibility(False)
 
+    def page_pd(self, phi1, lambda1, a12, d12):
+        try:
+            phi1_float = float(phi1.text())
+            lambda1_float = float(lambda1.text())
+            a12_float = float(a12.text())
+            d12_float = float(d12.text())
+        except ValueError:
+            self.clear_inputs([phi1, lambda1, a12, d12] + self.OUTPUTS)
+            self.show_error(self.ui.page7_erreur, self.ERRORS["INVALID_INPUTS"])
+        else:
+            phi2, lambda2, a21 = probleme_direct(phi1_float, lambda1_float, a12_float, d12_float)
+            self.ui.fct7_phi2.setText(str(self.rounding(phi2)))
+            self.ui.fct7_lambda2.setText(str(self.rounding(lambda2)))
+            self.ui.fct7_A21.setText(str(self.rounding(a21)))
+            self.set_errors_visibility(False)
+
+    def page_pi(self, phi1, phi2, lambda1, lambda2):
+        try:
+            phi1_float = float(phi1.text())
+            lambda1_float = float(lambda1.text())
+            phi2_float = float(phi2.text())
+            lambda2_float = float(lambda2.text())
+        except ValueError:
+            self.clear_inputs([phi1, phi2, lambda1, lambda2] + self.OUTPUTS)
+            self.show_error(self.ui.page8_erreur, self.ERRORS["INVALID_INPUTS"])
+        else:
+            a12, a21, s12 = probleme_inverse(phi1_float, phi2_float, lambda1_float, lambda2_float)
+            self.ui.fct8_A12.setText(str(self.rounding(a12)))
+            self.ui.fct8_A21.setText(str(self.rounding(a21)))
+            self.ui.fct8_segma12.setText(str(self.rounding(s12)))
+            self.set_errors_visibility(False)
+
+    # this method accepts an error label object and error string
+    # set the label color, change its text and shows it
     @staticmethod
     def show_error(label_obj, erreur):
         label_obj.setStyleSheet("color: red")
@@ -236,24 +350,26 @@ class MainWindow(QMainWindow):
         label_obj.adjustSize()
         label_obj.setVisible(True)
 
-
+    # this methods accepts an array of inputs and then clears them
     @staticmethod
     def clear_inputs(inputs):
         for text_box in inputs:
             text_box.clear()
 
+    # this methods rounds a float to 2 digits after the decimal points
     @staticmethod
     def rounding(nbr: float):
         a = str(nbr)
         point = a.index(".")
         return float(a[:point + 3])
 
+    # this method change the visibility of errors labels
     def set_errors_visibility(self, value: bool):
         for label in self.ERROR_LABELS:
             label.setVisible(value)
 
-
-    def slideLeftMenu(self):
+    # this method controls the sliding of the side menu
+    def slide_left_menu(self):
         width = self.ui.left_side_menu.width()
 
         new_width = 190 if width == 50 else 50

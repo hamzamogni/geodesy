@@ -167,4 +167,23 @@ def probleme_direct(phi1, lambda1, azimuth_depart, distance):
     return m.degrees(phi2), m.degrees(lambda2), m.degrees(azimuth_retour)
 
 
-print((probleme_direct(20, 70, 23, 1000000), sigma(1000000)))
+def probleme_inverse(phi1, phi2, lambda1, lambda2):
+    phi1_rad = m.radians(phi1)
+    phi2_rad = m.radians(phi2)
+    lambda1_rad = m.radians(lambda1)
+    lambda2_rad = m.radians(lambda2)
+
+    delta_lambda = m.fabs(lambda1_rad - lambda2_rad)
+
+    s12 = sym.sin(phi1_rad) * sym.sin(phi2_rad) + sym.cos(phi1_rad) * sym.cos(phi2_rad) * sym.cos(delta_lambda)
+    s12 = sym.acos(s12)
+
+    a12 = ((sym.tan(phi2_rad) * sym.cos(phi1_rad)) / sym.sin(delta_lambda)) - sym.sin(phi1_rad) * sym.cot(delta_lambda)
+    a12 = sym.acot(a12)
+
+    a21 = ((sym.tan(phi1_rad) * sym.cos(phi2_rad)) / sym.sin(delta_lambda)) - sym.sin(phi2_rad) * sym.cot(delta_lambda)
+    a21 = sym.acot(-a21)
+
+    return m.degrees(a12), m.degrees(a21), s12
+
+
