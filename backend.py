@@ -4,11 +4,11 @@ import sympy as sym
 import scipy.integrate
 import numpy as n
 
-a_wgs = 6378137
-b_wgs = 6356752.314
+a_wgs = 6378249.145
+b_wgs = 6356515
 
 
-def get_ellipsoid_parameters(a=6378137, b=6356752.314):
+def get_ellipsoid_parameters(a=a_wgs, b=b_wgs):
     return {
         "applatissement": 1 - b / a,
         "excentricite_1": 1 - (b / a) ** 2,
@@ -19,33 +19,13 @@ def get_ellipsoid_parameters(a=6378137, b=6356752.314):
     }
 
 
-# def get_applatissment(a, b):
-#     return 1 - b / a
-#
-#
-# def get_1er_excentricite(a, b):
-#     return 1 - (b / a) ** 2
-#
-#
-# def get_2eme_excentricite(a, b):
-#     return (a / b) ** 2 - 1
-#
-#
-# def get_excentricite_angulaire(a, b):
-#     return m.acos(b / a)
-#
-#
-# def get_courbure_pole(a, b):
-#     return (a ** 2) / b
-
-
 def convert_geo2cart(phi, lam, h):
     # (lat, lon) in WSG-84 degrees
     # h in meters
     phi_rad = m.radians(phi)
     lambda_rad = m.radians(lam)
     s = m.sin(phi_rad)
-    N = a_wgs / m.sqrt(1 - get_ellipsoid_parameters()["excentricite_1"] * s**2)
+    N = a_wgs / m.sqrt(1 - get_ellipsoid_parameters()["excentricite_1"] * s ** 2)
 
     sin_lambda = m.sin(lambda_rad)
     cos_lambda = m.cos(lambda_rad)
@@ -158,3 +138,33 @@ def get_surface_partie_terre(l1, l2, phi1, phi2):
         phi1_rad,
         phi2_rad)
     return m.fabs(b_wgs ** 2 * (l2_rad - l1_rad) * integral[0])
+
+
+def sigma(distance):
+    return distance / (((2 * a_wgs) + b_wgs) / 3)
+
+
+def probleme_direct(phi1, lambda1, azimuth_depart, distance):
+    phi1_rad = m.radians(phi1)
+    lambda1_rad = m.radians(lambda1)
+    azimuth_depart_rad = m.radians(azimuth_depart)
+
+    phi2 = m.sin(phi1_rad) * m.cos(sigma(distance)) + m.cos(phi1_rad) * m.sin(sigma(distance)) * m.cos(
+        azimuth_depart_rad)
+    phi2 = sym.asin(phi2)
+
+    lambda2 = sym.cot(sigma(distance)) * sym.sin(sym.pi / 2 - phi1_rad) - sym.cos(sym.pi / 2 - phi1_rad) * sym.cos(
+        azimuth_depart_rad)
+    lambda2 /= sym.sin(azimuth_depart_rad)
+    lambda2 = sym.acot(lambda2)
+
+    lambda2 += lambda1_rad
+
+    azimuth_retour = sym.cos(sigma(distance)) * sym.cos(azimuth_depart_rad) - sym.tan(phi1_rad) * sym.sin(sigma(distance))
+    azimuth_retour /= sym.sin(azimuth_depart_rad)
+    azimuth_retour = sym.acot(azimuth_retour)
+
+    return m.degrees(phi2), m.degrees(lambda2), m.degrees(azimuth_retour)
+
+
+print((probleme_direct(20, 70, 23, 1000000), sigma(1000000)))
