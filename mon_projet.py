@@ -60,7 +60,7 @@ class MainWindow(QMainWindow):
         )
 
         self.ERRORS = {
-            "FALSE_VALUES": "Merci d'entrer des valeurs valides"
+            "INVALID_INPUTS": "Merci d'entrer des valeurs valides"
         }
 
         self.ERROR_LABELS = [
@@ -75,6 +75,29 @@ class MainWindow(QMainWindow):
             self.ui.page6_erreur,
         ]
 
+        self.OUTPUTS = [
+            self.ui.applatissement,
+            self.ui.premier_e,
+            self.ui.deuxieme_e,
+            self.ui.e_angulaire,
+            self.ui.c_a_pole,
+            self.ui.fct2_phi,
+            self.ui.fct2_lambda,
+            self.ui.fct2_h,
+            self.ui.fct2_x,
+            self.ui.fct2_y,
+            self.ui.fct2_z,
+            self.ui.fct3_phi,
+            self.ui.fct3_psi,
+            self.ui.fct3_beta,
+            self.ui.fct4_m,
+            self.ui.fct4_n,
+            self.ui.fct4_ralpha,
+            self.ui.fct5_l,
+            self.ui.fct5_s,
+            self.ui.fct6_z,
+        ]
+
         self.set_errors_visibility(False)
 
         self.show()
@@ -85,16 +108,17 @@ class MainWindow(QMainWindow):
             a_float = float(a.text())
             b_float = float(b.text())
         except ValueError:
-            self.clear_outputs([a, b])
-            self.show_error(self.ui.page1_erreur, self.ERRORS["FALSE_VALUES"])
+            self.clear_inputs([a, b] + self.OUTPUTS)
+            self.show_error(self.ui.page1_erreur, self.ERRORS["INVALID_INPUTS"])
         else:
             res = get_ellipsoid_parameters(a_float, b_float)
 
-            self.ui.applatissement.setText(str(res["applatissement"]))
-            self.ui.premier_e.setText(str(res["excentricite_1"]))
-            self.ui.deuxieme_e.setText(str(res["excentricite_2"]))
-            self.ui.e_angulaire.setText(str(res["excentricite_ang"]))
-            self.ui.c_a_pole.setText(str(res["courbure_pole"]))
+            self.ui.applatissement.setText(str(self.rounding(res["applatissement"])))
+            self.ui.premier_e.setText(str(self.rounding(res["excentricite_1"])))
+            self.ui.deuxieme_e.setText(str(self.rounding(res["excentricite_2"])))
+            self.ui.e_angulaire.setText(str(self.rounding(res["excentricite_ang"])))
+            self.ui.c_a_pole.setText(str(self.rounding(res["courbure_pole"])))
+            self.set_errors_visibility(False)
 
     def page2(self, cart2geo, a, b, c):
         try:
@@ -102,68 +126,81 @@ class MainWindow(QMainWindow):
             b_float = float(b.text())
             c_float = float(c.text())
         except ValueError:
-            self.show_error(self.ui.page2_erreur, self.ERRORS["FALSE_VALUES"])
+            self.clear_inputs([a, b, c] + self.OUTPUTS)
+            self.show_error(self.ui.page2_erreur, self.ERRORS["INVALID_INPUTS"])
         else:
             if cart2geo:
                 phi, lamda, h = convert_cart2geo(a_float, b_float, c_float)
-                self.ui.fct2_phi.setText(str(phi))
-                self.ui.fct2_lambda.setText(str(lamda))
-                self.ui.fct2_h.setText(str(h))
+                self.ui.fct2_phi.setText(str(self.rounding(phi)))
+                self.ui.fct2_lambda.setText(str(self.rounding(lamda)))
+                self.ui.fct2_h.setText(str(self.rounding(h)))
+                self.set_errors_visibility(False)
 
             else:
                 x, y, z = convert_geo2cart(a_float, b_float, c_float)
-                self.ui.fct2_x.setText(str(x))
-                self.ui.fct2_y.setText(str(y))
-                self.ui.fct2_z.setText(str(z))
+                self.ui.fct2_x.setText(str(self.rounding(x)))
+                self.ui.fct2_y.setText(str(self.rounding(y)))
+                self.ui.fct2_z.setText(str(self.rounding(z)))
+                self.set_errors_visibility(False)
 
     def page3(self, x):
         try:
             x_float = float(x.text())
         except ValueError:
-            self.show_error(self.ui.page3_erreur, self.ERRORS["FALSE_VALUES"])
+            self.clear_inputs([x] + self.OUTPUTS)
+            self.show_error(self.ui.page3_erreur, self.ERRORS["INVALID_INPUTS"])
         else:
             beta, phi, psi = get_3_altitudes(x_float)
-            self.ui.fct3_beta.setText(str(beta))
-            self.ui.fct3_psi.setText(str(psi))
-            self.ui.fct3_phi.setText(str(phi))
+            self.ui.fct3_beta.setText(str(self.rounding(beta)))
+            self.ui.fct3_psi.setText(str(self.rounding(psi)))
+            self.ui.fct3_phi.setText(str(self.rounding(phi)))
+            self.set_errors_visibility(False)
 
     def page4_meridien(self, phi):
         try:
             phi_float = float(phi.text())
         except ValueError:
-            self.show_error(self.ui.page4_erreur1, self.ERRORS["FALSE_VALUES"])
+            self.clear_inputs([phi] + self.OUTPUTS)
+            self.show_error(self.ui.page4_erreur1, self.ERRORS["INVALID_INPUTS"])
         else:
             long = get_rayon_courbure(phi_float)
-            self.ui.fct4_m.setText(str(long))
+            self.ui.fct4_m.setText(str(self.rounding(long)))
+            self.set_errors_visibility(False)
 
     def page4_1er_verticale(self, psi):
         try:
             psi_float = float(psi.text())
         except ValueError:
-            self.show_error(self.ui.page4_erreur2, self.ERRORS["FALSE_VALUES"])
+            self.clear_inputs([psi] + self.OUTPUTS)
+            self.show_error(self.ui.page4_erreur2, self.ERRORS["INVALID_INPUTS"])
         else:
             long = get_rayon_1ere_verticale(psi_float)
-            self.ui.fct4_n.setText(str(long))
+            self.ui.fct4_n.setText(str(self.rounding(long)))
+            self.set_errors_visibility(False)
 
     def page4_azimuth(self, psi, alpha):
         try:
             psi_float = float(psi.text())
             alpha_float = float(alpha.text())
         except ValueError:
-            self.show_error(self.ui.page4_erreur3, self.ERRORS["FALSE_VALUES"])
+            self.clear_inputs([psi, alpha] + self.OUTPUTS)
+            self.show_error(self.ui.page4_erreur3, self.ERRORS["INVALID_INPUTS"])
         else:
             courb_azimuth = get_courbure_azimut(alpha_float, psi_float)
-            self.ui.fct4_ralpha.setText(str(courb_azimuth))
+            self.ui.fct4_ralpha.setText(str(self.rounding(courb_azimuth)))
+            self.set_errors_visibility(False)
 
     def page5_long_meridienne(self, phi1, phi2):
         try:
             phi1_float = float(phi1.text())
             phi2_float = float(phi2.text())
         except ValueError:
-            self.show_error(self.ui.page5_erreur1, self.ERRORS["FALSE_VALUES"])
+            self.clear_inputs([phi1, phi2] + self.OUTPUTS)
+            self.show_error(self.ui.page5_erreur1, self.ERRORS["INVALID_INPUTS"])
         else:
             long = get_longeur_meridien(phi1_float, phi2_float)
-            self.ui.fct5_s.setText(str(long))
+            self.ui.fct5_s.setText(str(self.rounding(long)))
+            self.set_errors_visibility(False)
 
     def page5_long_paralelle(self, phi, lambda1, lambda2):
         try:
@@ -171,10 +208,12 @@ class MainWindow(QMainWindow):
             lambda1_float = float(lambda1.text())
             lambda2_float = float(lambda2.text())
         except ValueError:
-            self.show_error(self.ui.page5_erreur2, self.ERRORS["FALSE_VALUES"])
+            self.clear_inputs([phi, lambda1, lambda2] + self.OUTPUTS)
+            self.show_error(self.ui.page5_erreur2, self.ERRORS["INVALID_INPUTS"])
         else:
             long = get_longueur_parallele(phi_float, lambda1_float, lambda2_float)
-            self.ui.fct5_l.setText(str(long))
+            self.ui.fct5_l.setText(str(self.rounding(long)))
+            self.set_errors_visibility(False)
 
     def page6(self, phi1, phi2, lambda1, lambda2):
         try:
@@ -183,10 +222,12 @@ class MainWindow(QMainWindow):
             lambda1_float = float(lambda1.text())
             lambda2_float = float(lambda2.text())
         except ValueError:
-            self.show_error(self.ui.page6_erreur, self.ERRORS["FALSE_VALUES"])
+            self.clear_inputs([phi1, phi2, lambda1, lambda2] + self.OUTPUTS)
+            self.show_error(self.ui.page6_erreur, self.ERRORS["INVALID_INPUTS"])
         else:
             surface = get_surface_partie_terre(lambda1_float, lambda2_float, phi1_float, phi2_float)
-            self.ui.fct6_z.setText(str(surface))
+            self.ui.fct6_z.setText(str(self.rounding(surface)))
+            self.set_errors_visibility(False)
 
     @staticmethod
     def show_error(label_obj, erreur):
@@ -195,15 +236,21 @@ class MainWindow(QMainWindow):
         label_obj.adjustSize()
         label_obj.setVisible(True)
 
+
     @staticmethod
-    def clear_outputs(outputs):
-        for text_box in outputs:
+    def clear_inputs(inputs):
+        for text_box in inputs:
             text_box.clear()
+
+    @staticmethod
+    def rounding(nbr: float):
+        a = str(nbr)
+        point = a.index(".")
+        return float(a[:point + 3])
 
     def set_errors_visibility(self, value: bool):
         for label in self.ERROR_LABELS:
             label.setVisible(value)
-
 
 
     def slideLeftMenu(self):
@@ -234,24 +281,24 @@ class AppWindow(QMainWindow):
         self.ui.progressBar.setValue(progressBarValue)
         if progressBarValue > 100:
             self.timer.stop()
-            self.ui.loadingprogress.setText("Loading completed succesfully")
+            self.ui.loadingprogress.setText("Chargement des fichiers...")
             self.main = MainWindow()
             self.main.show()
             self.close()
         elif 20 > progressBarValue > 10:
-            self.ui.loadingprogress.setText("Connecting to our App")
+            self.ui.loadingprogress.setText("Initialisation...")
 
         elif 35 > progressBarValue > 20:
-            self.ui.loadingprogress.setText("Logging in....")
+            self.ui.loadingprogress.setText("Initialisation...")
 
         elif 50 > progressBarValue > 35:
-            self.ui.loadingprogress.setText("Logging in succesfully. Requesting profile .....")
+            self.ui.loadingprogress.setText("Initialisation...")
 
         elif 75 > progressBarValue > 50:
-            self.ui.loadingprogress.setText("Profile est to Spinn design....")
+            self.ui.loadingprogress.setText("Chargement de fonctions...")
 
         elif 100 > progressBarValue > 75:
-            self.ui.loadingprogress.setText("Almost done....")
+            self.ui.loadingprogress.setText("Bienvenue...")
         progressBarValue += 10
 
 
