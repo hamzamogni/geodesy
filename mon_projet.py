@@ -131,23 +131,6 @@ class MainWindow(QMainWindow):
         }
 
         #############################
-        #       ERRORS LABELS       #
-        #############################
-        self.ERROR_LABELS = [
-            self.ui.page1_erreur,
-            self.ui.page2_erreur,
-            self.ui.page3_erreur,
-            self.ui.page4_erreur1,
-            self.ui.page4_erreur2,
-            self.ui.page4_erreur3,
-            self.ui.page5_erreur1,
-            self.ui.page5_erreur2,
-            self.ui.page6_erreur,
-            self.ui.page7_erreur,
-            self.ui.page8_erreur,
-        ]
-
-        #############################
         #      OUTPUTS OBJECTS      #
         #############################
         self.OUTPUTS = [
@@ -177,6 +160,44 @@ class MainWindow(QMainWindow):
             self.ui.fct8_A12,
             self.ui.fct8_segma12,
         ]
+
+        # Linking error labels with their according inputs
+        self.ERRORS_INPUTS = {
+            self.ui.page1_erreur: [self.ui.a,
+                                   self.ui.b],
+            self.ui.page2_erreur: [self.ui.fct2_phi,
+                                   self.ui.fct2_lambda,
+                                   self.ui.fct2_h,
+                                   self.ui.fct2_x,
+                                   self.ui.fct2_y,
+                                   self.ui.fct2_z],
+            self.ui.page3_erreur: [self.ui.fct3_x],
+            self.ui.page4_erreur1: [self.ui.fct4_phi],
+            self.ui.page4_erreur2: [self.ui.fct4_psi],
+            self.ui.page4_erreur3: [self.ui.fct4_psi1,
+                                    self.ui.fct4_alpha],
+            self.ui.page5_erreur1: [self.ui.fct5_phi1,
+                                    self.ui.fct5_phi2],
+            self.ui.page5_erreur2: [self.ui.fct5_phi21,
+                                    self.ui.fct5_lambda1,
+                                    self.ui.fct5_lambda2],
+            self.ui.page6_erreur: [self.ui.fct6_alpha1,
+                                   self.ui.fct6_alpha2,
+                                   self.ui.fct6_l1,
+                                   self.ui.fct6_l2],
+            self.ui.page7_erreur: [self.ui.fct_phi1,
+                                   self.ui.fct7_lambda1,
+                                   self.ui.fct7_A12,
+                                   self.ui.fct7_d12],
+            self.ui.page8_erreur: [self.ui.fct8_phi1,
+                                   self.ui.fct8_phi2,
+                                   self.ui.fct8_lambda1,
+                                   self.ui.fct8_lambda2],
+        }
+
+        for error, inputs in self.ERRORS_INPUTS.items():
+            for input_label in inputs:
+                input_label.textChanged.connect(lambda inp=input_label, err=error: self.validate_input(inp, err))
 
         # we hide errors when we start the app
         self.set_errors_visibility(False)
@@ -354,6 +375,7 @@ class MainWindow(QMainWindow):
     @staticmethod
     def clear_inputs(inputs):
         for text_box in inputs:
+            print(text_box)
             text_box.clear()
 
     # this methods rounds a float to 2 digits after the decimal points
@@ -363,9 +385,17 @@ class MainWindow(QMainWindow):
         point = a.index(".")
         return float(a[:point + 3])
 
+    def validate_input(self, input_object, error_object):
+        try:
+            float(input_object)
+        except ValueError:
+            self.show_error(error_object, self.ERRORS["INVALID_INPUTS"])
+        else:
+            self.set_errors_visibility(False)
+
     # this method change the visibility of errors labels
     def set_errors_visibility(self, value: bool):
-        for label in self.ERROR_LABELS:
+        for label in self.ERRORS_INPUTS:
             label.setVisible(value)
 
     # this method controls the sliding of the side menu
