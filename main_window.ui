@@ -202,6 +202,7 @@ QPushButton{
 }
 QPushButton:hover{
    background-color: #101010;
+   border-color: #ffffff
 }
 </string>
          </property>
@@ -545,6 +546,9 @@ QPushButton:hover{
           <enum>QFrame::Raised</enum>
          </property>
          <widget class="QStackedWidget" name="stackedWidget">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
           <property name="geometry">
            <rect>
             <x>0</x>
@@ -564,10 +568,13 @@ QPushButton:hover{
  border-radius: 5px;
  border: 1px solid #00aa7f;
 }
+QLineEdit:hover{
+   border-color: #101010;
+}
 </string>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="fonction1">
            <property name="styleSheet">
@@ -652,6 +659,9 @@ QPushButton:hover{
             <property name="styleSheet">
              <string notr="true"/>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="b">
             <property name="geometry">
@@ -662,10 +672,13 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="applatissement">
             <property name="enabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="geometry">
              <rect>
@@ -675,13 +688,28 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <kerning>true</kerning>
+             </font>
+            </property>
             <property name="cursor">
              <cursorShape>ForbiddenCursor</cursorShape>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>false</bool>
             </property>
            </widget>
            <widget class="QLineEdit" name="premier_e">
             <property name="enabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="geometry">
              <rect>
@@ -694,10 +722,16 @@ QPushButton:hover{
             <property name="cursor">
              <cursorShape>ForbiddenCursor</cursorShape>
             </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="deuxieme_e">
             <property name="enabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="geometry">
              <rect>
@@ -710,10 +744,16 @@ QPushButton:hover{
             <property name="cursor">
              <cursorShape>ForbiddenCursor</cursorShape>
             </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="e_angulaire">
             <property name="enabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="geometry">
              <rect>
@@ -726,10 +766,16 @@ QPushButton:hover{
             <property name="cursor">
              <cursorShape>ForbiddenCursor</cursorShape>
             </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="c_a_pole">
             <property name="enabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="geometry">
              <rect>
@@ -741,6 +787,15 @@ QPushButton:hover{
             </property>
             <property name="cursor">
              <cursorShape>ForbiddenCursor</cursorShape>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="dragEnabled">
+             <bool>false</bool>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
             </property>
            </widget>
            <widget class="Line" name="line">
@@ -937,6 +992,9 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct2_h">
             <property name="geometry">
@@ -947,6 +1005,9 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct2_lambda">
             <property name="geometry">
@@ -956,6 +1017,12 @@ QPushButton:hover{
               <width>121</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
             </property>
            </widget>
            <widget class="Line" name="line_2">
@@ -1086,6 +1153,9 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct2_y">
             <property name="geometry">
@@ -1096,6 +1166,9 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct2_x">
             <property name="geometry">
@@ -1105,6 +1178,9 @@ QPushButton:hover{
               <width>121</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
             </property>
            </widget>
            <widget class="QPushButton" name="fct2_g2c">
@@ -1241,6 +1317,9 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QFrame" name="frame_13">
             <property name="geometry">
@@ -1303,6 +1382,9 @@ QPushButton:hover{
             </property>
            </widget>
            <widget class="QLineEdit" name="fct3_phi">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="geometry">
              <rect>
               <x>440</x>
@@ -1311,8 +1393,17 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="cursor">
+             <cursorShape>ForbiddenCursor</cursorShape>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct3_psi">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="geometry">
              <rect>
               <x>440</x>
@@ -1321,8 +1412,17 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="cursor">
+             <cursorShape>ForbiddenCursor</cursorShape>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct3_beta">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="geometry">
              <rect>
               <x>440</x>
@@ -1330,6 +1430,12 @@ QPushButton:hover{
               <width>121</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="cursor">
+             <cursorShape>ForbiddenCursor</cursorShape>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
             </property>
            </widget>
            <widget class="QFrame" name="frame_15">
@@ -1461,6 +1567,9 @@ QPushButton:hover{
                 <height>31</height>
                </rect>
               </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
              </widget>
              <widget class="QPushButton" name="fct4_cal1">
               <property name="geometry">
@@ -1542,6 +1651,9 @@ QPushButton:hover{
               </property>
              </widget>
              <widget class="QLineEdit" name="fct4_m">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
               <property name="geometry">
                <rect>
                 <x>390</x>
@@ -1549,6 +1661,12 @@ QPushButton:hover{
                 <width>121</width>
                 <height>31</height>
                </rect>
+              </property>
+              <property name="cursor">
+               <cursorShape>ForbiddenCursor</cursorShape>
+              </property>
+              <property name="readOnly">
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QLabel" name="page4_erreur1">
@@ -1619,6 +1737,9 @@ QPushButton:hover{
                 <height>31</height>
                </rect>
               </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
              </widget>
              <widget class="QFrame" name="frame_26">
               <property name="geometry">
@@ -1659,6 +1780,9 @@ QPushButton:hover{
               </property>
              </widget>
              <widget class="QLineEdit" name="fct4_n">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
               <property name="geometry">
                <rect>
                 <x>370</x>
@@ -1666,6 +1790,12 @@ QPushButton:hover{
                 <width>121</width>
                 <height>31</height>
                </rect>
+              </property>
+              <property name="cursor">
+               <cursorShape>ForbiddenCursor</cursorShape>
+              </property>
+              <property name="readOnly">
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QLabel" name="page4_erreur2">
@@ -1736,6 +1866,9 @@ QPushButton:hover{
                 <height>31</height>
                </rect>
               </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
              </widget>
              <widget class="QFrame" name="frame_30">
               <property name="geometry">
@@ -1757,6 +1890,9 @@ QPushButton:hover{
               </property>
              </widget>
              <widget class="QLineEdit" name="fct4_ralpha">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
               <property name="geometry">
                <rect>
                 <x>400</x>
@@ -1764,6 +1900,12 @@ QPushButton:hover{
                 <width>121</width>
                 <height>31</height>
                </rect>
+              </property>
+              <property name="cursor">
+               <cursorShape>ForbiddenCursor</cursorShape>
+              </property>
+              <property name="readOnly">
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QFrame" name="frame_5">
@@ -1833,6 +1975,9 @@ image: url(:/buttons/alpha.png);</string>
                 <height>31</height>
                </rect>
               </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
              </widget>
              <widget class="QLabel" name="page4_erreur3">
               <property name="geometry">
@@ -1877,7 +2022,7 @@ image: url(:/buttons/alpha.png);</string>
              </rect>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="tab">
              <attribute name="title">
@@ -1910,6 +2055,9 @@ image: url(:/buttons/alpha.png);</string>
                 <width>121</width>
                 <height>31</height>
                </rect>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
               </property>
              </widget>
              <widget class="QPushButton" name="fct5_cal_btn">
@@ -1986,6 +2134,9 @@ QPushButton:hover{
               </property>
              </widget>
              <widget class="QLineEdit" name="fct5_s">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
               <property name="geometry">
                <rect>
                 <x>370</x>
@@ -1993,6 +2144,12 @@ QPushButton:hover{
                 <width>121</width>
                 <height>31</height>
                </rect>
+              </property>
+              <property name="cursor">
+               <cursorShape>ForbiddenCursor</cursorShape>
+              </property>
+              <property name="readOnly">
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QFrame" name="frame_23">
@@ -2022,6 +2179,9 @@ QPushButton:hover{
                 <width>121</width>
                 <height>31</height>
                </rect>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
               </property>
              </widget>
              <widget class="QLabel" name="page4_erreur3_5">
@@ -2078,6 +2238,9 @@ QPushButton:hover{
                 <height>31</height>
                </rect>
               </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
              </widget>
              <widget class="QLineEdit" name="fct5_lambda2">
               <property name="geometry">
@@ -2087,6 +2250,9 @@ QPushButton:hover{
                 <width>121</width>
                 <height>31</height>
                </rect>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
               </property>
              </widget>
              <widget class="Line" name="line_10">
@@ -2144,6 +2310,9 @@ QPushButton:hover{
               </property>
              </widget>
              <widget class="QLineEdit" name="fct5_l">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
               <property name="geometry">
                <rect>
                 <x>390</x>
@@ -2151,6 +2320,12 @@ QPushButton:hover{
                 <width>121</width>
                 <height>31</height>
                </rect>
+              </property>
+              <property name="cursor">
+               <cursorShape>ForbiddenCursor</cursorShape>
+              </property>
+              <property name="readOnly">
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QFrame" name="frame_8">
@@ -2218,6 +2393,9 @@ QPushButton:hover{
                 <width>121</width>
                 <height>31</height>
                </rect>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
               </property>
              </widget>
              <widget class="QFrame" name="frame_22">
@@ -2320,6 +2498,9 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct6_alpha2">
             <property name="geometry">
@@ -2329,6 +2510,9 @@ QPushButton:hover{
               <width>121</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
             </property>
            </widget>
            <widget class="QLineEdit" name="fct6_l1">
@@ -2340,6 +2524,9 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct6_l2">
             <property name="geometry">
@@ -2349,6 +2536,9 @@ QPushButton:hover{
               <width>121</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
             </property>
            </widget>
            <widget class="QFrame" name="frame_24">
@@ -2562,6 +2752,9 @@ QPushButton:hover{
             </property>
            </widget>
            <widget class="QLineEdit" name="fct6_z">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="geometry">
              <rect>
               <x>470</x>
@@ -2569,6 +2762,12 @@ QPushButton:hover{
               <width>121</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="cursor">
+             <cursorShape>ForbiddenCursor</cursorShape>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
             </property>
            </widget>
            <widget class="QFrame" name="frame_34">
@@ -2630,6 +2829,9 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct7_lambda1">
             <property name="geometry">
@@ -2639,6 +2841,9 @@ QPushButton:hover{
               <width>121</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
             </property>
            </widget>
            <widget class="QLineEdit" name="fct7_A12">
@@ -2650,6 +2855,9 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct7_d12">
             <property name="geometry">
@@ -2660,8 +2868,14 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct7_phi2">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="geometry">
              <rect>
               <x>440</x>
@@ -2670,8 +2884,17 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="cursor">
+             <cursorShape>ForbiddenCursor</cursorShape>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct7_A21">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="geometry">
              <rect>
               <x>440</x>
@@ -2680,8 +2903,17 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="cursor">
+             <cursorShape>ForbiddenCursor</cursorShape>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct7_lambda2">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="geometry">
              <rect>
               <x>440</x>
@@ -2689,6 +2921,12 @@ QPushButton:hover{
               <width>121</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="cursor">
+             <cursorShape>ForbiddenCursor</cursorShape>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
             </property>
            </widget>
            <widget class="Line" name="line_12">
@@ -3105,6 +3343,9 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct8_phi2">
             <property name="geometry">
@@ -3114,6 +3355,9 @@ QPushButton:hover{
               <width>121</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
             </property>
            </widget>
            <widget class="QLineEdit" name="fct8_lambda1">
@@ -3125,6 +3369,9 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct8_lambda2">
             <property name="geometry">
@@ -3134,6 +3381,9 @@ QPushButton:hover{
               <width>121</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
             </property>
            </widget>
            <widget class="Line" name="line_13">
@@ -3150,6 +3400,9 @@ QPushButton:hover{
             </property>
            </widget>
            <widget class="QLineEdit" name="fct8_A12">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="geometry">
              <rect>
               <x>450</x>
@@ -3158,8 +3411,20 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="cursor">
+             <cursorShape>ForbiddenCursor</cursorShape>
+            </property>
+            <property name="mouseTracking">
+             <bool>true</bool>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct8_A21">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="geometry">
              <rect>
               <x>450</x>
@@ -3168,8 +3433,17 @@ QPushButton:hover{
               <height>31</height>
              </rect>
             </property>
+            <property name="cursor">
+             <cursorShape>ForbiddenCursor</cursorShape>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
            </widget>
            <widget class="QLineEdit" name="fct8_segma12">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="geometry">
              <rect>
               <x>450</x>
@@ -3177,6 +3451,12 @@ QPushButton:hover{
               <width>121</width>
               <height>31</height>
              </rect>
+            </property>
+            <property name="cursor">
+             <cursorShape>ForbiddenCursor</cursorShape>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
             </property>
            </widget>
            <widget class="QPushButton" name="fct8_btn">
